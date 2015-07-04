@@ -21,20 +21,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class JavaCompleter {
     public static void main(String[] args) throws IOException {
-        new JavaCompleter().run();
-    }
-
-    private void run() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         Scanner s = null;
         for (String filename = in.readLine(); filename != null; filename = in.readLine()) {
             s = new Scanner(new File(filename));
             s.useDelimiter("\\Z");
-            ASTParser parser = ASTParser.newParser(AST.JLS3);
+            ASTParser parser = ASTParser.newParser(AST.JLS4);
             parser.setSource(s.next().toCharArray());
             parser.setKind(ASTParser.K_COMPILATION_UNIT);
             final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
