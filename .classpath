@@ -177,6 +177,5 @@ limitations under the License.
   <classpathentry kind="lib" path="/usr/lib/eclipse/plugins/org.sat4j.core_2.3.2.WHEEZY.jar"/>
   <classpathentry kind="lib" path="/usr/lib/eclipse/plugins/org.sat4j.pb_2.3.2.WHEEZY.jar"/>
   <classpathentry kind="output" path=""/>
-  <classpathentry kind="src" path="."/>
   <classpathentry kind="src" path=""/>
 </classpath>
