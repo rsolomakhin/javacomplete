@@ -12,15 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.ASTParser;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.NodeFinder;
 
 public class JavaCompleter {
     public static void main(String[] args) throws IOException {
@@ -32,7 +33,10 @@ public class JavaCompleter {
             ASTParser parser = ASTParser.newParser(AST.JLS4);
             parser.setSource(s.next().toCharArray());
             parser.setKind(ASTParser.K_COMPILATION_UNIT);
-            final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+            ASTNode file  = parser.createAST(null);
+            ASTNode range = NodeFinder.perform(file, 200, 201);
+            System.out.println(range.getNodeType());
+            range.hashCode()
         }
     }
 }
