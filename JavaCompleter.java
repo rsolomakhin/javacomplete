@@ -36,7 +36,6 @@ public class JavaCompleter {
             ASTNode file  = parser.createAST(null);
             ASTNode range = NodeFinder.perform(file, 200, 201);
             System.out.println(range.getNodeType());
-            range.hashCode()
         }
     }
 }
